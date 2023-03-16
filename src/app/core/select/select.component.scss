@@ -1,0 +1,30 @@
+div {
+  width: fit-content;
+}
+
+select {
+  text-transform: capitalize;
+  text-align: center;
+  width: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  color: #E2E2E2;
+  background: linear-gradient(to bottom,#E2E2E2,#EA5D60);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+select:focus {
+  outline: none;
+  
+}
+
+select option {
+  color: #EA5D60;
+  cursor: pointer;
+}
+
+select option:hover{
+  background:#EA5D60;
+  transform: scale(1.2);
+}

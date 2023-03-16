@@ -1,0 +1,220 @@
+<app-header></app-header>
+<div class="pokemon-detail-container">
+  <div class="pokemon-detail-info-container">
+    <div class="go-back" (click)="goBack()">⬅</div>
+    <div class="pokemon-detail-info">
+      <div class="id">
+        #{{ pokemon.id ? pokemon.id.toString().padStart(4, "0") : "" }}
+      </div>
+      <div class="name">{{ pokemon.name | titlecase }}</div>
+      <div class="types-container">
+        <div
+          class="type1"
+          [ngStyle]="{ 'background-color': getColorForType(pokemon.firstType) }"
+        >
+          <img
+            src="assets/types-images/{{ pokemon.firstType }}.svg"
+            alt="{{ pokemon.firstType }} icon"
+            class="color-text-type"
+          />
+          {{ pokemon.firstType | titlecase }}
+        </div>
+        <div
+          class="type2"
+          *ngIf="pokemon.seccondType"
+          [ngStyle]="{
+            'background-color': getColorForType(pokemon.seccondType)
+          }"
+        >
+          <img
+            *ngIf="pokemon.seccondType"
+            src="assets/types-images/{{ pokemon.seccondType }}.svg"
+            alt="{{ pokemon.seccondType }} icon"
+          />
+          {{ pokemon.seccondType | titlecase }}
+        </div>
+      </div>
+    </div>
+    <div class="pokemon-detail-more-info">
+      <div class="tab-buttons">
+        <button
+          [ngStyle]="{
+            'background-color': getColorForBackground(pokemon.color)
+          }"
+          (click)="setCurrentTab('description')"
+        >
+          Description
+        </button>
+        <button
+          [ngStyle]="{
+            'background-color': getColorForBackground(pokemon.color)
+          }"
+          (click)="setCurrentTab('stats')"
+        >
+          Stats
+        </button>
+        <button
+          [ngStyle]="{
+            'background-color': getColorForBackground(pokemon.color)
+          }"
+          (click)="setCurrentTab('evolution')"
+        >
+          Evolution
+        </button>
+      </div>
+      <div class="tab-content">
+        <div *ngIf="currentTab === 'description'" class="description">
+          <div class="detail-description">
+            <div class="languages">
+              <button (click)="selectedLanguage = 'en'">Eng</button>
+              <button (click)="selectedLanguage = 'es'">Spa</button>
+              <button (click)="selectedLanguage = 'fr'">Fr</button>
+              <button (click)="selectedLanguage = 'it'">Ita</button>
+              <button (click)="selectedLanguage = 'ja-Hrkt'">Jap</button>
+            </div>
+            <div>
+              {{ getPokedexEntryByLanguage(selectedLanguage) }}
+            </div>
+          </div>
+          <div class="experience">
+            Base Experience: {{ pokemonDetail.experience }}
+          </div>
+          <div class="height">
+            Pokemon Height:
+            {{ pokemonDetail ? pokemonDetail.height / 10 : "" }} m
+          </div>
+          <div class="weight">
+            Pokemon Weight:
+            {{ pokemonDetail ? pokemonDetail.weight / 10 : "" }} Kg
+          </div>
+          <div class="ability">
+            First Ability:
+            {{ pokemonDetail.firstAbility | titlecase }}
+          </div>
+          <div class="ability" *ngIf="pokemonDetail.seccondAbility">
+            Second Ability:
+            {{ pokemonDetail.seccondAbility | titlecase }}
+          </div>
+          <div class="ability" *ngIf="pokemonDetail.hiddenAbility">
+            Hidden Ability:
+            {{ pokemonDetail.hiddenAbility }}
+          </div>
+        </div>
+        <div *ngIf="currentTab === 'stats'" class="stats">
+          <div class="stat-item">
+            <div class="stat-name">HP</div>
+            <div class="stat-bar-full" [style.width.%]="100">
+              <div
+                [ngStyle]="{
+                  'background-color': getColorForBackground(pokemon.color)
+                }"
+                class="stat-bar"
+                [style.width.%]="(pokemonDetail.hp / 255) * 100"
+              ></div>
+            </div>
+            <div class="stat-value">{{ pokemonDetail.hp }}</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-name">Attack</div>
+            <div class="stat-bar-full" [style.width.%]="100">
+              <div
+                [ngStyle]="{
+                  'background-color': getColorForBackground(pokemon.color)
+                }"
+                class="stat-bar"
+                [style.width.%]="(pokemonDetail.attack / 255) * 100"
+              ></div>
+            </div>
+            <div class="stat-value">{{ pokemonDetail.attack }}</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-name">Defense</div>
+            <div class="stat-bar-full" [style.width.%]="100">
+              <div
+                [ngStyle]="{
+                  'background-color': getColorForBackground(pokemon.color)
+                }"
+                class="stat-bar"
+                [style.width.%]="(pokemonDetail.defense / 255) * 100"
+              ></div>
+            </div>
+            <div class="stat-value">{{ pokemonDetail.defense }}</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-name">Sp. Attack</div>
+            <div class="stat-bar-full" [style.width.%]="100">
+              <div
+                [ngStyle]="{
+                  'background-color': getColorForBackground(pokemon.color)
+                }"
+                class="stat-bar"
+                [style.width.%]="(pokemonDetail.spAttack / 255) * 100"
+              ></div>
+            </div>
+            <div class="stat-value">{{ pokemonDetail.spAttack }}</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-name">Sp. Defense</div>
+            <div class="stat-bar-full" [style.width.%]="100">
+              <div
+                [ngStyle]="{
+                  'background-color': getColorForBackground(pokemon.color)
+                }"
+                class="stat-bar"
+                [style.width.%]="(pokemonDetail.spDefense / 255) * 100"
+              ></div>
+            </div>
+            <div class="stat-value">{{ pokemonDetail.spDefense }}</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-name">Speed</div>
+            <div class="stat-bar-full" [style.width.%]="100">
+              <div
+                [ngStyle]="{
+                  'background-color': getColorForBackground(pokemon.color)
+                }"
+                class="stat-bar"
+                [style.width.%]="(pokemonDetail.speed / 255) * 100"
+              ></div>
+            </div>
+            <div class="stat-value">{{ pokemonDetail.speed }}</div>
+          </div>
+        </div>
+        <div *ngIf="currentTab === 'evolution'" class="evolution">
+          <app-pokemon-evolution-chain
+            [pokemon]="pokemon"
+            [pokemonSpecie]="pokemonSpecie"
+          ></app-pokemon-evolution-chain>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="pokemon-detail-image-container"
+    [ngStyle]="{ 'background-color': getColorForBackground(pokemon.color) }"
+  >
+    <div class="image-container">
+      <img Class="pokemon-image" [src]="pokemon.image" />
+    </div>
+    <div class="prev-next-pokemon-container">
+      <div class="prev-next-pokemon-container">
+        <div class="prev" (click)="navigateToPreviousPokemon()">
+          Previous
+          {{
+            pokemonDetail.id > 1
+              ? (pokemonDetail.id - 1).toString().padStart(4, "0")
+              : ""
+          }}
+        </div>
+        <div class="next" (click)="navigateToNextPokemon()">
+          Next
+          {{
+            pokemonDetail.id < 1008
+              ? (pokemonDetail.id + 1).toString().padStart(4, "0")
+              : ""
+          }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

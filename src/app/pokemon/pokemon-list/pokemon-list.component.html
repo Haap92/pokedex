@@ -1,0 +1,27 @@
+<app-header class="header"></app-header>
+  <div class="search-container">
+    <div class="sort" (click)="toggleSortOrder()">Sort Order</div>
+    <div class="search-indications">
+    <app-search-bar
+      class="search-bar"
+      [search]="search"
+      [placeholder]="'What Pokemon are you loking for?'"
+      (searchChange)="onSearchChange($event)"
+    ></app-search-bar>
+    <div class="indications">Search for Pokémon by name, type or using the National Pokédex number</div>
+  </div>
+    <app-select
+      label="Generation"
+      [options]="generation"
+      [selectedOption]="selectedGeneration"
+      (selectChange)="onSelectChange($event)"
+    ></app-select>
+  </div>
+<div class="pokemon-list-container">
+  <div *ngIf="pokemons.length"  class="pokemon-list">
+    <app-pokemon-card *ngFor="let pokemon of pokemons; let i = index" [pokemon]="pokemon"></app-pokemon-card>
+  </div>
+  <div *ngIf="!pokemons.length">
+    <app-pokemon-not-found></app-pokemon-not-found>
+  </div>  
+</div>

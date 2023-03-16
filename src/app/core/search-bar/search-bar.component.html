@@ -1,0 +1,18 @@
+<div class="search-bar">
+  <span class="search-icon">
+    <img
+    src="assets/decos/mag.svg"
+    alt="mag glass icon"
+  />
+</span>
+  <input
+    type="text"
+    class="search-input"
+    [placeholder]="placeholder || 'What are you looking for?'"
+    [ngModel]="search"
+    (ngModelChange)="searchChange.emit($event)"
+  />
+</div>
+
+
+

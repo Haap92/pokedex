@@ -1,0 +1,47 @@
+<div
+  class="pokemon-card"
+  [ngStyle]="{ 'background-color': getColorForBackground(pokemon.color) }"
+  (click)="goToPokemonDetails()"
+>
+  <div class="pokemon-info-container">
+    <div class="index-number">
+      #{{ pokemon.id ? pokemon.id.toString().padStart(4, "0") : "" }}
+    </div>
+    <div class="pokemon-name-container">
+      <span class="pokemon-name">{{
+        pokemon.name | titlecase
+      }}</span>
+    </div>
+
+    <div class="pokemon-types">
+      <div
+        class="type1"
+        [ngStyle]="{ 'background-color': getColorForType(pokemon.firstType) }"
+      >
+        <img
+          src="assets/types-images/{{ pokemon.firstType }}.svg"
+          alt="{{ pokemon.firstType }} icon"
+          class="color-text-type"
+        />
+        {{ pokemon.firstType | titlecase}}
+      </div>
+      <div
+        class="type2"
+        *ngIf="pokemon.seccondType"
+        [ngStyle]="{ 'background-color': getColorForType(pokemon.seccondType) }"
+      >
+        <img
+          *ngIf="pokemon.seccondType"
+          src="assets/types-images/{{ pokemon.seccondType }}.svg"
+          alt="{{ pokemon.seccondType }} icon"
+        />
+        {{
+          pokemon.seccondType | titlecase
+        }}
+      </div>
+    </div>
+  </div>
+  <div class="pokemon-image-container">
+    <img Class="pokemon-image" [src]="pokemon.image" />
+  </div>
+</div>
