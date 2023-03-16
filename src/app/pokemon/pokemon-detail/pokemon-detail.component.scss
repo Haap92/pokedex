@@ -73,134 +73,133 @@
     }
   }
 }
-  .pokemon-detail-more-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.pokemon-detail-more-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .tab-buttons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 
-  .tab-buttons button {
-    border: none;
-    border-radius: 5px;
-    color: #e2e2e2;
-    cursor: pointer;
-    font: bold 16px sans-serif;
-    margin: 0 10px;
-    padding: 10px 20px;
-    transition: background-color 0.2s ease-in-out;
-  }
+.tab-buttons button {
+  border: none;
+  border-radius: 5px;
+  color: #e2e2e2;
+  cursor: pointer;
+  font: bold 16px sans-serif;
+  margin: 0 10px;
+  padding: 10px 20px;
+  transition: background-color 0.2s ease-in-out;
+}
 
-  .tab-buttons button:hover {
-    transform: scale(1.1);
-    box-shadow: 2px 2px 2px 2px #ff1a1a;
-  }
+.tab-buttons button:hover {
+  transform: scale(1.1);
+  box-shadow: 2px 2px 2px 2px #ff1a1a;
+}
 
-  .tab-buttons button:focus {
-    outline: none;
-    color: #ff1a1a;
-  }
+.tab-buttons button:focus {
+  outline: none;
+  color: #ff1a1a;
+}
 
-  .tab-content {
-    height: 500px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+.tab-content {
+  height: 500px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  .tab-content .description {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 300px;
-  }
+.tab-content .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 300px;
+}
 
-  .tab-content .description .detail-description {
-    display: flex;
-    flex-direction: row;
-    font-size: 20px;
-    width: 400px;
-  }
+.tab-content .description .detail-description {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  width: 400px;
+}
 
-  .tab-content .description .detail-description .languages {
-    display: flex;
-    flex-direction: column;
-    margin-right: 25px;
-  }
+.tab-content .description .detail-description .languages {
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
+}
 
-  .tab-content .description .detail-description .languages button:hover {
-    transform: scale(1.1);
-    box-shadow: 1px 1px 1px 1px #ff1a1a;
-  }
+.tab-content .description .detail-description .languages button:hover {
+  transform: scale(1.1);
+  box-shadow: 1px 1px 1px 1px #ff1a1a;
+}
 
-  .tab-content .description .detail-description .languages button:focus {
-    outline: none;
-    color: #ff1a1a;
-  }
+.tab-content .description .detail-description .languages button:focus {
+  outline: none;
+  color: #ff1a1a;
+}
 
-  .tab-content .description .experience,
-  .tab-content .description .height,
-  .tab-content .description .weight,
-  .tab-content .description .ability {
-    font-size: 20px;
-    margin-bottom: 10px;
-    width: 300px;
-    margin-left: 25px;
-  }
+.tab-content .description .experience,
+.tab-content .description .height,
+.tab-content .description .weight,
+.tab-content .description .ability {
+  font-size: 20px;
+  margin-bottom: 10px;
+  width: 300px;
+  margin-left: 25px;
+}
 
-  .tab-content .description .experience span,
-  .tab-content .description .height span,
-  .tab-content .description .weight span,
-  .tab-content .description .ability span {
-    font-weight: bold;
-  }
+.tab-content .description .experience span,
+.tab-content .description .height span,
+.tab-content .description .weight span,
+.tab-content .description .ability span {
+  font-weight: bold;
+}
 
-  .tab-content .stats {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 16px;
-  }
+.tab-content .stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+}
 
-  .tab-content .stats .stat-item {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 10px;
-    width: 360px;
-  }
+.tab-content .stats .stat-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 360px;
+}
 
-  .tab-content .stats .stat-item .stat-name {
-    width: 120px;
-  }
+.tab-content .stats .stat-item .stat-name {
+  width: 120px;
+}
 
-  .tab-content .stats .stat-item .stat-bar {
-    height: 20px;
-    border-radius: 5px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
+.tab-content .stats .stat-item .stat-bar {
+  height: 20px;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
 
-  .tab-content .stats .stat-item .stat-bar-full {
-    height: 20px;
-    border-radius: 5px;
-    background-color: #17171b27;
-    margin: 0 10px;
-    position: relative;
-    width: 200px;
-  }
+.tab-content .stats .stat-item .stat-bar-full {
+  height: 20px;
+  border-radius: 5px;
+  background-color: #17171b27;
+  margin: 0 10px;
+  position: relative;
+  width: 200px;
+}
 
-  .tab-content .stats .stat-item .stat-value {
-    font-weight: bold;
-    width: 40px;
-  }
-
+.tab-content .stats .stat-item .stat-value {
+  font-weight: bold;
+  width: 40px;
+}
   .evolution {
     display: flex;
     flex-direction: column;
@@ -243,7 +242,10 @@
     display: flex;
     flex-direction: row;
     align-content: space-around;
+    font-size: 24px;
+    font-weight: bold;
     margin-top: 9%;
+    cursor: pointer;
     }
     
     .pokemon-detail-image-container .prev-next-pokemon-container .prev {
@@ -251,12 +253,9 @@
     padding: 10px;
     width: 250px;
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
     color: #747476;
     border-radius: 10px;
     margin: 20px;
-    cursor: pointer;
     }
     
     .pokemon-detail-image-container .prev-next-pokemon-container .next {
@@ -264,11 +263,8 @@
     padding: 10px;
     width: 250px;
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
     color: #e2e2e2;
     border-radius: 10px;
     margin: 20px;
-    cursor: pointer;
     }
 
